@@ -1,3 +1,4 @@
+//implementation("io.coil-kt:coil-compose:2.2.2")
 @Composable
 fun loadImage(){
 AsyncImage(model = ImageRequest.Builder(LocalContext.current)
