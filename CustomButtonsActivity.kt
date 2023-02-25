@@ -47,6 +47,29 @@ class CustomButtonsActivity : ComponentActivity() {
     }
 }
 
+// Creating a composable
+// Gradient Button
+@Composable
+fun CreateButton(onClick: ()-> Unit){
+
+   Button(onClick = { onClick() },
+       colors = ButtonDefaults.buttonColors(backgroundColor = Color.Transparent),
+       contentPadding = PaddingValues()
+   ) {
+
+       Box(
+           modifier = Modifier
+               .background(Brush.linearGradient(colors = listOf(color1, color2, color3), start = Offset(0f,Offset.Infinite.y),
+                   end = Offset(Offset.Infinite.x,Offset.Infinite.y)))
+               .padding(horizontal = 16.dp, vertical = 8.dp), contentAlignment = Alignment.Center
+       ){
+           Text(text = "hello", color = Color.White,
+               modifier = Modifier.padding(horizontal = 64.dp, vertical = 64.dp))
+       }
+   }
+
+}
+
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun Buttons() {
