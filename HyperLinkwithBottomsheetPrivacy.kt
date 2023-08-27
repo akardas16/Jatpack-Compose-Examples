@@ -72,10 +72,19 @@ fun WebViewCompose(url: String, modifier: Modifier = Modifier, onCreated: (WebVi
             view?.visibility = View.VISIBLE
             Log.i("sdfsdfsdfsd", "onPageFinished: ")
         }
+
+    }
+
+    val chromeClient = object :WebChromeClient(){
+        override fun onProgressChanged(view: WebView?, newProgress: Int) {
+            super.onProgressChanged(view, newProgress)
+            Log.i("sdfsdfsdfsd", "onProgressChanged: ${newProgress}")
+        }
     }
     val webView: MyWebView = remember(context) {
         MyWebView(context).also {
             it.webViewClient = client
+            it.webChromeClient = chromeClient
             it.visibility = View.INVISIBLE
         }.also(onCreated)
     }
@@ -169,4 +178,3 @@ fun HyperlinkText(
         }, style = TextStyle(textAlign = TextAlign.Center)
     )
 }
-
