@@ -72,6 +72,7 @@ fun Greeting5() {
 
 }
 
+// add  implementation 'com.github.alexzhirkevich:custom-qr-generator:2.0.0-alpha01'
 
 @Composable
 fun QRCode(
