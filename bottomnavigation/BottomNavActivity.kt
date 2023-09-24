@@ -46,12 +46,13 @@ fun SetSystemColor(colorStatus: Color,colorNav:Color =  Color(0xFF232A3D)){
     val systemUiController = rememberSystemUiController()
     val darkTheme = isSystemInDarkTheme()
     SideEffect {
-        Handler(Looper.getMainLooper()).postDelayed(Runnable {
+       scope.launch { 
+            delay(80)
             systemUiController.setStatusBarColor(
                 color = if (darkTheme) Color.Blue else colorStatus,
                 darkIcons = true
             )
-        },80)
+        }
 
 
         systemUiController.setNavigationBarColor(
